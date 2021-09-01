@@ -5,7 +5,7 @@
 
 - 🔭 I’m currently working on [General-Purpose-Bot](https://github.com/thenishantsapkota/General-Purpose-Bot)
 
-- 🌱 I’m currently planning on learning **GO Lang.**
+- 🌱 I’m currently learning **JavaScript.**
 
 - 👨‍💻 All of my projects are available at [https://github.com/thenishantsapkota](https://github.com/thenishantsapkota)
 
