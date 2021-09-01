@@ -9,7 +9,7 @@
 
 - 👨‍💻 All of my projects are available at [https://github.com/thenishantsapkota](https://github.com/thenishantsapkota)
 
-- 💬 Ask me about **Intermediate Python stuff and discord.py**
+- 💬 Ask me about **Intermediate Python Stuff** _RIP discord.py :(_
 
 - 📫 How to reach me **snishant306@gmail.com**
 
