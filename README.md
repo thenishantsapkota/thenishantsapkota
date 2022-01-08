@@ -3,7 +3,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=thenishantsapkota&label=Profile%20views&color=0e75b6&style=flat" alt="thenishantsapkota" /> </p>
 
-- 🔭 I’m currently working on [Hikari Bot](https://github.com/thenishantsapkota/hikari-bot)
+- 🔭 I’m currently working on Avgamah v2
 
 - 🌱 I’m currently learning **JavaScript.**
 
