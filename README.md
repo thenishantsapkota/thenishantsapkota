@@ -11,7 +11,7 @@
 
 - 💬 Ask me about **Intermediate Python Stuff**
 
-- 📫 How to reach me **snishant306@gmail.com**
+- 📫 How to reach me **hello@snishant.com.np**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
