@@ -5,7 +5,7 @@
 
 - 🔭 I’m currently working on Avgamah v2.
 
-- 🌱 I’m currently learning **Java.**
+- 🌱 I’m currently learning **Flutter.**
 
 - 👨‍💻 All of my projects are available at [https://github.com/thenishantsapkota](https://github.com/thenishantsapkota)
 
