@@ -1,3 +1,5 @@
+#### Current Date: 2023-10-14 09:53:48
+
 # 💫 About Me:
 🔭 I’m currently working on CampusConnect App<br>🌱 I’m currently learning TypeScript<br>💬 Ask me about Python and TypeScript
 

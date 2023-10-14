@@ -1,0 +1,40 @@
+name: Update Readme
+on:
+  schedule:
+      - cron: "0 0 * * *"
+jobs:
+  update_readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up the time zone
+        run: |
+          sudo ln -sf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime
+          echo $TIME_ZONE | sudo tee /etc/timezone
+          date
+
+      - name: Configure Git
+        run: |
+          git init
+          git config --global user.email "snishant306@gmail.com"
+          git config --global user.name "thenishantsapkota"
+
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: thenishantsapkota/thenishantsapkota
+
+      - name: Run script
+        run: |
+          chmod +x readme.sh
+          ./readme.sh
+
+      - name: Check README.md status
+        run: |
+          git status README.md
+
+      - name: Commit and push changes
+        run: |
+             git pull origin main
+             chmod +x readme.sh
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
