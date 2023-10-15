@@ -16,3 +16,7 @@ else
 fi
 
 echo "Current date $current_date has been added to the file."
+
+git add README.md
+git commit -m "Update date in readme"
+git push origin main
