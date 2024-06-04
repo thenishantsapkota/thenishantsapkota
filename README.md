@@ -1,7 +1,7 @@
 #### Current Date: 2024-06-04 01:11:26
 
 # 💫 About Me:
-🔭 I’m currently working on CampusConnect App<br>🌱 I’m currently learning TypeScript<br>💬 Ask me about Python and TypeScript
+🔭 I’m currently working on improving my skills App<br>🌱 I’m currently learning DevOps<br>💬 Ask me about TypeScript
 
 ![Views](https://komarev.com/ghpvc/?username=thenishantsapkota&label=Profile%20views&color=0e75b6&style=flat)
 
