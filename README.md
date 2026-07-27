@@ -17,7 +17,7 @@
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=thenishantsapkota&theme=onedark&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
 
 ## 🎵 Currently Listening to
-[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=ygp41sktyl4ztdkv0cn6ta0j1&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false)](https://github.com/kittinan/spotify-github-profile)
+[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=ygp41sktyl4ztdkv0cn6ta0j1&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&profanity=false&hide_remaster=false)](https://github.com/kittinan/spotify-github-profile)
 
 
 <!-- Proudly created with the help of prajita -->
