@@ -68,7 +68,7 @@
 
 ## Listening
 
-[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=ygp41sktyl4ztdkv0cn6ta0j1&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&profanity=false&hide_remaster=false)](https://github.com/kittinan/spotify-github-profile)
+<a href="https://open.spotify.com/user/ygp41sktyl4ztdkv0cn6ta0j1"><picture><source media="(prefers-color-scheme: dark)" srcset="https://nishant-now-playing.vercel.app/api/now-playing?theme=dark" /><img src="https://nishant-now-playing.vercel.app/api/now-playing?theme=light" alt="What I am listening to on Spotify" width="100%" /></picture></a>
 
 #### Current Date: 2026-11-02 23:54:11
 
