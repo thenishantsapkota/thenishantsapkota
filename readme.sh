@@ -1,22 +1,17 @@
 #!/bin/bash
+# Refresh the "#### Current Date:" line in README.md.
+# The line can sit anywhere in the file; if it's missing, it's added at the end.
+# Committing and pushing is done by the workflow.
+set -euo pipefail
 
-# Define the file path
 file_path="README.md"
-
-# Get the current date and time
 current_date=$(date +"%Y-%m-%d %H:%M:%S")
 
-# Check if the file already contains a date and time at the beginning
-if [[ $(head -n 1 "$file_path") == "#### Current Date: "* ]]; then
-    # If it exists, replace the existing date and time with the current one
-    sed -i "1s/.*/#### Current Date: $current_date/" "$file_path"
+if grep -q '^#### Current Date: ' "$file_path"; then
+    sed -i.bak "s/^#### Current Date: .*/#### Current Date: $current_date/" "$file_path"
+    rm -f "$file_path.bak"
 else
-    # If it doesn't exist, add the current date and time at the beginning
-    echo -e "#### Current Date: $current_date\n\n$(cat $file_path)" > "$file_path"
+    printf '\n#### Current Date: %s\n' "$current_date" >> "$file_path"
 fi
 
-echo "Current date $current_date has been added to the file."
-
-git add README.md
-git commit -m "Update date in readme"
-git push origin main
+echo "Current date $current_date has been written to $file_path."

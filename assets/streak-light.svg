@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="485" height="195" viewBox="0 0 485 195" role="img" aria-label="Contribution streak">
+  <title>Contribution streak</title>
+  <style>
+    text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+    .title { font-size: 18px; font-weight: 600; fill: #0969da; }
+    .label { font-size: 14px; fill: #59636e; }
+    .value { font-size: 14px; font-weight: 600; fill: #1f2328; }
+    .big { font-size: 28px; font-weight: 700; fill: #1f2328; }
+    .hot { fill: #bc4c00; }
+    .small { font-size: 12px; fill: #59636e; }
+  </style>
+  <rect x="0.5" y="0.5" width="484" height="194" rx="6" fill="#ffffff" stroke="#d1d9e0"/>
+  <g class="fade" style="animation-delay:0ms"><text x="81" y="74" text-anchor="middle" class="big">13,227</text><text x="81" y="108" text-anchor="middle" class="value">Total contributions</text><text x="81" y="130" text-anchor="middle" class="small">Feb 6, 2020 - Present</text></g>
+  <circle cx="243" cy="70" r="40" fill="none" stroke="#fb8f44" stroke-width="5"/><text x="243" y="36" text-anchor="middle" font-size="18">🔥</text>
+  <g class="fade" style="animation-delay:120ms"><text x="243" y="80" text-anchor="middle" class="big hot">1,117</text><text x="243" y="140" text-anchor="middle" class="value">Current streak</text><text x="243" y="162" text-anchor="middle" class="small">Oct 13, 2023 - Nov 2, 2026</text></g>
+  <g class="fade" style="animation-delay:240ms"><text x="405" y="74" text-anchor="middle" class="big">1,117</text><text x="405" y="108" text-anchor="middle" class="value">Longest streak</text><text x="405" y="130" text-anchor="middle" class="small">Oct 13, 2023 - Nov 2, 2026</text></g>
+  <line x1="162" y1="28" x2="162" y2="170" stroke="#d1d9e0"/>
+  <line x1="324" y1="28" x2="324" y2="170" stroke="#d1d9e0"/>
+</svg>

@@ -1,40 +1,63 @@
 name: Update Readme
+
 on:
   schedule:
-      - cron: "0 0 * * *"
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One run at a time, so two runs never push over each other.
+concurrency:
+  group: profile-update
+  cancel-in-progress: false
+
 jobs:
   update_readme:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Kathmandu
     steps:
-      - name: Set up the time zone
-        run: |
-          sudo ln -sf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime
-          echo $TIME_ZONE | sudo tee /etc/timezone
-          date
-
-      - name: Configure Git
-        run: |
-          git init
-          git config --global user.email "snishant306@gmail.com"
-          git config --global user.name "thenishantsapkota"
-
       - name: Check out repository
-        uses: actions/checkout@v2
-        with:
-          repository: thenishantsapkota/thenishantsapkota
+        uses: actions/checkout@v4
 
-      - name: Run script
-        run: |
-          chmod +x readme.sh
-          ./readme.sh
+      - name: Update date
+        run: bash readme.sh
 
-      - name: Check README.md status
-        run: |
-          git status README.md
-
-      - name: Commit and push changes
-        run: |
-             git pull origin main
-             chmod +x readme.sh
+      - name: Build stat, streak and language cards
+        run: python3 scripts/generate_cards.py
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
+
+      - name: Publish snake to the output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+          keep_history: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Commits are authored as you so they count on your contribution graph,
+      # the same as the old date-only workflow.
+      - name: Commit and push
+        run: |
+          git config user.name "thenishantsapkota"
+          git config user.email "snishant306@gmail.com"
+          git add README.md assets
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -m "Update date and profile stats"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
