@@ -1,29 +1,15 @@
 // Vercel function: GET /api/now-playing?theme=dark|light
 // Returns the "Now playing" card as an SVG, built fresh on every request.
 //
-// Needs three environment variables on the Vercel project:
-//   SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN
-// (get the refresh token once with scripts/get-refresh-token.mjs)
+// Needs on the Vercel project:
+//   SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN (first sign-in,
+//   from scripts/get-refresh-token.mjs), and a private Blob store connected to the
+//   project, where lib/tokens.js keeps the newest tokens so they never expire.
 
 import { renderCard } from "../lib/card.js";
+import { accessToken } from "../lib/tokens.js";
 
-const TOKEN_URL = "https://accounts.spotify.com/api/token";
 const API = "https://api.spotify.com/v1/me/player";
-
-async function accessToken() {
-  const { SPOTIFY_CLIENT_ID: id, SPOTIFY_CLIENT_SECRET: secret, SPOTIFY_REFRESH_TOKEN: refresh } = process.env;
-  if (!id || !secret || !refresh) throw new Error("Spotify credentials are not set on this deployment.");
-  const res = await fetch(TOKEN_URL, {
-    method: "POST",
-    headers: {
-      Authorization: "Basic " + Buffer.from(`${id}:${secret}`).toString("base64"),
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({ grant_type: "refresh_token", refresh_token: refresh }),
-  });
-  if (!res.ok) throw new Error(`Spotify token refresh failed (${res.status}).`);
-  return (await res.json()).access_token;
-}
 
 // GitHub shows README images through its own proxy, which can't load images from
 // other sites inside an SVG, so the album art is embedded as a data: URI.

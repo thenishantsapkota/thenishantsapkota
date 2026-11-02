@@ -3,5 +3,10 @@
   "private": true,
   "type": "module",
   "description": "Live Spotify 'Now playing' card for the GitHub profile README",
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.2"
+  }
 }
