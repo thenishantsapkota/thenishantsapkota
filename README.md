@@ -26,32 +26,22 @@
 ## 💻 Tech stack
 
 **Languages**<br/>
-<img src="https://skillicons.dev/icons?i=ts,js,py,java,cpp,dart,html,css,md" alt="TypeScript, JavaScript, Python, Java, C++, Dart, HTML, CSS, Markdown" />
+<img src="./assets/stack-languages.svg" alt="TypeScript, JavaScript, Python, Java, C++, Dart, HTML, CSS, Markdown" />
 
 **Frameworks and runtimes**<br/>
-<img src="https://skillicons.dev/icons?i=nodejs,nestjs,express,django,fastapi,flask,flutter,bootstrap" alt="Node.js, NestJS, Express, Django, FastAPI, Flask, Flutter, Bootstrap" />
+<img src="./assets/stack-frameworks.svg" alt="Node.js, NestJS, Express, Django, Django REST Framework, FastAPI, Flask, Flutter, Bootstrap, Socket.io" />
 
 **Databases**<br/>
-<img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,sqlite,redis" alt="PostgreSQL, MySQL, MongoDB, SQLite, Redis" />
+<img src="./assets/stack-databases.svg" alt="PostgreSQL, MySQL, MongoDB, SQLite, Redis" />
 
 **DevOps, cloud and tools**<br/>
-<img src="https://skillicons.dev/icons?i=docker,linux,githubactions,vercel,firebase,postman,npm,yarn" alt="Docker, Linux, GitHub Actions, Vercel, Firebase, Postman, npm, Yarn" />
+<img src="./assets/stack-devops.svg" alt="Docker, Linux, GitHub Actions, Vercel, Firebase, Glitch, Postman, Swagger, JWT, npm, Yarn, Jira" />
 
-**ML and design**<br/>
-<img src="https://skillicons.dev/icons?i=tensorflow,sklearn,ps,figma" alt="TensorFlow, scikit-learn, Photoshop, Figma" />
+**ML and data**<br/>
+<img src="./assets/stack-ml.svg" alt="TensorFlow, Keras, scikit-learn, NumPy, Pandas" />
 
-**Also**<br/>
-![Django REST](https://img.shields.io/badge/Django%20REST-ff1709?style=flat-square&logo=django&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=flat-square&logo=JSON%20web%20tokens)
-![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=flat-square&logo=socket.io)
-![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black)
-![Keras](https://img.shields.io/badge/Keras-D00000?style=flat-square&logo=keras&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![Jira](https://img.shields.io/badge/Jira-0A0FFF?style=flat-square&logo=jira&logoColor=white)
-![Glitch](https://img.shields.io/badge/Glitch-3333FF?style=flat-square&logo=glitch&logoColor=white)
-![GIMP](https://img.shields.io/badge/GIMP-657D8B?style=flat-square&logo=gimp&logoColor=white)
-![Canva](https://img.shields.io/badge/Canva-00C4CC?style=flat-square&logo=canva&logoColor=white)
+**Design**<br/>
+<img src="./assets/stack-design.svg" alt="Photoshop, GIMP, Figma, Canva" />
 
 ## 📊 GitHub stats
 
