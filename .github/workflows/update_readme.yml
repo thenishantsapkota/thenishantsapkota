@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 # One run at a time, so two runs never push over each other.
 concurrency:
@@ -44,3 +45,43 @@ jobs:
           git commit -m "Update date and profile stats"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
+
+      # Spotify sign-ins last 180 days. The card renews itself when Spotify allows
+      # it; if it can't, open one issue 14 days before the card would go blank.
+      - name: Check Spotify sign-in
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STATUS_URL: https://nishant-now-playing.vercel.app/api/token-status
+        run: |
+          status=$(curl -fsS --max-time 20 "$STATUS_URL") || { echo "Status page unreachable, skipping."; exit 0; }
+          echo "$status"
+          days=$(echo "$status" | jq -r '.daysLeft // empty')
+          failing=$(echo "$status" | jq -r '.failing')
+          if [ "$failing" != "true" ] && { [ -z "$days" ] || [ "$days" -gt 14 ]; }; then
+            echo "Spotify sign-in is fine."
+            exit 0
+          fi
+          title="Spotify card: sign in again"
+          open=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq length)
+          if [ "$open" != "0" ]; then
+            echo "Reminder issue already open."
+            exit 0
+          fi
+          if [ "$failing" = "true" ]; then
+            why="Spotify is refusing the saved sign-in, so the Now Playing card currently shows nothing."
+          else
+            why="The Spotify sign-in for the Now Playing card runs out in $days days and Spotify hasn't renewed it."
+          fi
+          gh issue create --title "$title" --body "$why
+
+          **Fix (about 2 minutes):**
+          1. Clone this repo and, from its folder, run:
+             \`\`\`
+             SPOTIFY_CLIENT_ID=your_client_id SPOTIFY_CLIENT_SECRET=your_client_secret node now-playing/scripts/get-refresh-token.mjs
+             \`\`\`
+             (Client ID and secret: https://developer.spotify.com/dashboard, your app, Settings.)
+          2. Open the link it prints, click Agree, and copy the token after \`SPOTIFY_REFRESH_TOKEN=\`.
+          3. Paste it as the new value of \`SPOTIFY_REFRESH_TOKEN\` at https://vercel.com/thenishantsapkotas-projects/nishant-now-playing/settings/environment-variables and redeploy the latest deployment.
+
+          The card switches to the new sign-in by itself. Close this issue once the card shows your music again; it reopens only if the problem comes back."

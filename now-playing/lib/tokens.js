@@ -5,16 +5,30 @@
 // token) is saved in a private Vercel Blob file, so the card keeps renewing
 // itself as long as it gets used now and then.
 //
+// Alongside the tokens the file records when the current refresh token was
+// issued and whether the last refresh failed, so tokenStatus() can warn before
+// the 180 days run out (see api/token-status.js and the README workflow).
+//
 // Reads go: memory (same warm function) -> private blob -> SPOTIFY_REFRESH_TOKEN env.
 // The env value is only the starting point from the first sign-in.
 
+import { createHash } from "node:crypto";
 import { get, put } from "@vercel/blob";
 
 const TOKEN_URL = "https://accounts.spotify.com/api/token";
 const FILE = "spotify/tokens.json";
 const EARLY = 60_000; // refresh a minute before the access token runs out
+export const LIFETIME_DAYS = 180;
+const DAY = 86_400_000;
 
-let memory = null; // { refreshToken, accessToken, expiresAt }
+let memory = null; // { refreshToken, accessToken, expiresAt, issuedAt, seed, lastError, lastErrorAt }
+
+// A short fingerprint of SPOTIFY_REFRESH_TOKEN. When it changes, you signed in
+// again, so the new token wins over the saved one.
+const seed = () =>
+  process.env.SPOTIFY_REFRESH_TOKEN
+    ? createHash("sha256").update(process.env.SPOTIFY_REFRESH_TOKEN).digest("hex").slice(0, 16)
+    : null;
 
 async function readStored() {
   try {
@@ -69,23 +83,42 @@ async function refresh(refreshToken) {
 /** Returns a valid Spotify access token, renewing and saving tokens when needed. */
 export async function accessToken() {
   const fresh = (t) => t?.accessToken && t.expiresAt - EARLY > Date.now();
-  if (fresh(memory)) return memory.accessToken;
+  if (fresh(memory) && memory.seed === seed()) return memory.accessToken;
 
   const stored = await readStored();
-  if (fresh(stored)) {
+  const resignedIn = !!stored && stored.seed !== seed();
+  if (fresh(stored) && !resignedIn) {
+    if (!stored.issuedAt) {
+      // Files saved before issue dates were tracked: the token is from the first sign-in.
+      stored.issuedAt = Date.now();
+      stored.seed = seed();
+      await save(stored);
+    }
     memory = stored;
     return stored.accessToken;
   }
 
-  // Try the newest saved refresh token first, then the one from the first sign-in.
-  const candidates = [...new Set([stored?.refreshToken, process.env.SPOTIFY_REFRESH_TOKEN].filter(Boolean))];
+  // Normally the newest saved refresh token goes first, then the one from the sign-in.
+  // Right after a new sign-in, the new one goes first.
+  const order = resignedIn
+    ? [process.env.SPOTIFY_REFRESH_TOKEN, stored?.refreshToken]
+    : [stored?.refreshToken, process.env.SPOTIFY_REFRESH_TOKEN];
+  const candidates = [...new Set(order.filter(Boolean))];
   if (!candidates.length) throw new Error("No Spotify refresh token is set.");
 
   let lastError;
   for (const candidate of candidates) {
     try {
       const next = await refresh(candidate);
-      if (next.refreshToken !== candidate) console.log("Spotify issued a new refresh token; saved it.");
+      if (next.refreshToken !== candidate) {
+        next.issuedAt = Date.now();
+        console.log("Spotify issued a new refresh token; saved it.");
+      } else if (candidate === stored?.refreshToken && stored.issuedAt) {
+        next.issuedAt = stored.issuedAt;
+      } else {
+        next.issuedAt = Date.now();
+      }
+      next.seed = seed();
       memory = next;
       await save(next);
       return next.accessToken;
@@ -93,5 +126,26 @@ export async function accessToken() {
       lastError = err;
     }
   }
+  if (stored) await save({ ...stored, lastError: lastError.message, lastErrorAt: Date.now() });
   throw lastError;
+}
+
+/**
+ * How long the current refresh token has left, for the expiry warning.
+ * Never includes any token, only dates and whether Spotify is refusing it.
+ */
+export async function tokenStatus() {
+  const stored = await readStored();
+  if (!stored?.issuedAt) return { known: false, failing: false };
+  const expiresAt = stored.issuedAt + LIFETIME_DAYS * DAY;
+  // A failure older than the last successful save doesn't count.
+  const failing = !!stored.lastErrorAt && !(stored.expiresAt > stored.lastErrorAt);
+  return {
+    known: true,
+    issuedAt: new Date(stored.issuedAt).toISOString(),
+    expiresAt: new Date(expiresAt).toISOString(),
+    daysLeft: Math.floor((expiresAt - Date.now()) / DAY),
+    failing,
+    lastError: failing ? stored.lastError : undefined,
+  };
 }
