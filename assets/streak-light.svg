@@ -192,7 +192,7 @@
   <rect x="785" y="105" width="12" height="12" rx="2" fill="#216e39"/>
   <rect x="785" y="120" width="12" height="12" rx="2" fill="#9be9a8"/>
   <rect x="800" y="30" width="12" height="12" rx="2" fill="#9be9a8"/>
-  <rect x="800" y="45" width="12" height="12" rx="2" fill="#30a14e" stroke="#1f2328" stroke-width="1.5"/>
+  <rect x="800" y="45" width="12" height="12" rx="2" fill="#216e39" stroke="#1f2328" stroke-width="1.5"/>
   <line x1="28" y1="148" x2="812" y2="148" stroke="#d0d7de"/>
-  <text x="28" y="172" class="line"><tspan class="v">13,234</tspan> contributions since Feb 2020</text><text x="360" y="172" class="line">Best day <tspan class="v">96</tspan> on Oct 28, 2026</text><text x="812" y="172" class="line" text-anchor="end"><tspan class="v">83</tspan> days to 1,200</text>
+  <text x="28" y="172" class="line"><tspan class="v">13,243</tspan> contributions since Feb 2020</text><text x="360" y="172" class="line">Best day <tspan class="v">96</tspan> on Oct 28, 2026</text><text x="812" y="172" class="line" text-anchor="end"><tspan class="v">83</tspan> days to 1,200</text>
 </svg>
