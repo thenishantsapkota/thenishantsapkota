@@ -1,22 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="485" height="215" viewBox="0 0 485 215" role="img" aria-label="Nishant Sapkota&#x27;s GitHub stats">
-  <title>Nishant Sapkota&#x27;s GitHub stats</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="485" height="196" viewBox="0 0 485 196" role="img" aria-label="GitHub stats">
+  <title>GitHub stats</title>
   <style>
-    text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
-    .title { font-size: 18px; font-weight: 600; fill: #58a6ff; }
-    .label { font-size: 14px; fill: #9198a1; }
-    .value { font-size: 14px; font-weight: 600; fill: #e6edf3; }
-    .big { font-size: 28px; font-weight: 700; fill: #e6edf3; }
-    .hot { fill: #f0883e; }
-    .small { font-size: 12px; fill: #9198a1; }
+    text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Noto Sans', Helvetica, Arial, sans-serif; }
+    .title { font-size: 15px; font-weight: 600; fill: #e6edf3; }
+    .label { font-size: 13px; fill: #8b949e; }
+    .value { font-size: 13px; font-weight: 600; fill: #e6edf3; font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace; }
+    .hero { font-size: 56px; font-weight: 600; fill: #e6edf3; letter-spacing: -.03em; }
+    .unit { font-size: 17px; fill: #8b949e; }
+    .line { font-size: 13px; fill: #8b949e; }
+    .line tspan.v { fill: #e6edf3; font-weight: 600; }
+    .tiny { font-size: 11px; fill: #8b949e; }
   </style>
-  <rect x="0.5" y="0.5" width="484" height="214" rx="6" fill="#0d1117" stroke="#30363d"/>
-  <text x="25" y="38" class="title">Nishant Sapkota's GitHub stats</text>
-  <g class="fade" style="animation-delay:0ms"><text x="25" y="78" class="label">⭐ Total stars</text><text x="230" y="78" class="value" text-anchor="end">79</text></g>
-  <g class="fade" style="animation-delay:80ms"><text x="255" y="78" class="label">📦 Commits (all time)</text><text x="460" y="78" class="value" text-anchor="end">12,654</text></g>
-  <g class="fade" style="animation-delay:160ms"><text x="25" y="110" class="label">🔀 Pull requests</text><text x="230" y="110" class="value" text-anchor="end">220</text></g>
-  <g class="fade" style="animation-delay:240ms"><text x="255" y="110" class="label">🐞 Issues</text><text x="460" y="110" class="value" text-anchor="end">47</text></g>
-  <g class="fade" style="animation-delay:320ms"><text x="25" y="142" class="label">👀 Code reviews</text><text x="230" y="142" class="value" text-anchor="end">222</text></g>
-  <g class="fade" style="animation-delay:400ms"><text x="255" y="142" class="label">🤝 Contributed to (last year)</text><text x="460" y="142" class="value" text-anchor="end">1</text></g>
-  <g class="fade" style="animation-delay:480ms"><text x="25" y="174" class="label">📁 Public repos</text><text x="230" y="174" class="value" text-anchor="end">60</text></g>
-  <g class="fade" style="animation-delay:560ms"><text x="255" y="174" class="label">👥 Followers</text><text x="460" y="174" class="value" text-anchor="end">132</text></g>
+  <rect x="0.5" y="0.5" width="484" height="195" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="24" y="36" class="title">GitHub stats</text>
+  <text x="24" y="74" class="label">Stars</text><text x="230" y="74" class="value" text-anchor="end">79</text>
+  <text x="256" y="74" class="label">Commits, all time</text><text x="462" y="74" class="value" text-anchor="end">12,654</text>
+  <text x="24" y="104" class="label">Pull requests</text><text x="230" y="104" class="value" text-anchor="end">325</text>
+  <text x="256" y="104" class="label">Issues</text><text x="462" y="104" class="value" text-anchor="end">48</text>
+  <text x="24" y="134" class="label">Code reviews</text><text x="230" y="134" class="value" text-anchor="end">222</text>
+  <text x="256" y="134" class="label">Recently contributed to</text><text x="462" y="134" class="value" text-anchor="end">11</text>
+  <text x="24" y="164" class="label">Public repos</text><text x="230" y="164" class="value" text-anchor="end">60</text>
+  <text x="256" y="164" class="label">Followers</text><text x="462" y="164" class="value" text-anchor="end">132</text>
 </svg>

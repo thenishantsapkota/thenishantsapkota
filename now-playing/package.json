@@ -1,0 +1,7 @@
+{
+  "name": "now-playing-card",
+  "private": true,
+  "type": "module",
+  "description": "Live Spotify 'Now playing' card for the GitHub profile README",
+  "engines": { "node": ">=20" }
+}

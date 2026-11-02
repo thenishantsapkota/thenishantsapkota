@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the tech-stack icon rows in assets/stack-*.svg.
+"""Build the tech-stack icon rows (assets/stack-*.svg) and social icons (assets/social-*.svg).
 
 Icons that skillicons.dev has are copied from it. The ones it doesn't have
 (JWT, Socket.io, Keras, ...) are drawn here in the same style: a 256x256
@@ -14,7 +14,8 @@ import urllib.request
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "assets"
-SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/{}.svg"
+SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@{}/icons/{}.svg"
+SIMPLE_ICONS_VERSION = "13.21.0"
 TILE = "#242938"  # skillicons' dark tile colour
 
 # Custom tiles: name -> (Simple Icons slug, logo colour readable on the dark tile)
@@ -30,7 +31,14 @@ CUSTOM = {
     "glitch": ("glitch", "#7A7AFF"),
     "gimp": ("gimp", "#A39A80"),
     "canva": ("canva", "#00C4CC"),
+    "x": ("x", "#FFFFFF"),
+    # The newer Medium icon is a cropped wordmark; 9.21.0 still has the classic mark.
+    "medium": ("medium", "#FFFFFF", "9.21.0"),
+    "facebook": ("facebook", "#4D9BFF"),
 }
+
+# One file per social icon, so each can be its own link in the README.
+SOCIALS = ["linkedin", "x", "medium", "instagram", "facebook"]
 
 ROWS = {
     "languages": ["ts", "js", "py", "java", "cpp", "dart", "html", "css", "md"],
@@ -57,8 +65,8 @@ def skillicon(name):
 
 
 def custom_tile(name):
-    slug, color = CUSTOM[name]
-    path = re.search(r'<path d="([^"]+)"', get(SIMPLE_ICONS.format(slug))).group(1)
+    slug, color, *version = CUSTOM[name]
+    path = re.search(r'<path d="([^"]+)"', get(SIMPLE_ICONS.format(version[0] if version else SIMPLE_ICONS_VERSION, slug))).group(1)
     # Simple Icons draw on a 24-unit grid; scale to a 152-unit logo centred on the tile.
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">'
             f'<rect width="256" height="256" fill="{TILE}" rx="60"/>'
@@ -75,6 +83,12 @@ def main():
                f'xmlns="http://www.w3.org/2000/svg">\n{body}\n</svg>\n')
         (OUT / f"stack-{row}.svg").write_text(svg, encoding="utf-8")
         print(f"stack-{row}.svg: {', '.join(names)}")
+    for name in SOCIALS:
+        tile = custom_tile(name) if name in CUSTOM else skillicon(name)
+        svg = (f'<svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">'
+               f'{tile}</svg>\n')
+        (OUT / f"social-{name}.svg").write_text(svg, encoding="utf-8")
+    print(f"social icons: {', '.join(SOCIALS)}")
 
 
 if __name__ == "__main__":

@@ -1,29 +1,23 @@
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&pause=1200&color=58A6FF&center=true&vCenter=true&width=640&lines=Hi%2C+I'm+Nishant+Sapkota+%F0%9F%91%8B;TypeScript+%C2%B7+Python+%C2%B7+learning+DevOps;Coding+from+Nepal+%F0%9F%87%B3%F0%9F%87%B5;1%2C000%2B+day+contribution+streak+%F0%9F%94%A5" alt="Hi, I'm Nishant Sapkota" />
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg" />
+  <img src="./assets/hero-light.svg" alt="Nishant Sapkota. Developer from Nepal. TypeScript and Python, learning DevOps. Each month of GitHub contributions since 2020 is drawn as a mountain peak." width="100%" />
+</picture>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=thenishantsapkota&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
-  <a href="https://user-badge.committers.top/nepal/thenishantsapkota"><img src="https://user-badge.committers.top/nepal/thenishantsapkota.svg" alt="committers.top badge" /></a>
-</p>
+<sub>Each peak is one month of my contributions since February 2020. Redrawn every day.</sub>
 
-## 💫 About me
+<img src="https://komarev.com/ghpvc/?username=thenishantsapkota&label=Profile%20views&color=1a7f37&style=flat" alt="Profile views" /> <a href="https://user-badge.committers.top/nepal/thenishantsapkota"><img src="https://user-badge.committers.top/nepal/thenishantsapkota.svg" alt="committers.top badge" /></a>
 
-- 🔭 I'm currently working on improving my skills
-- 🌱 I'm currently learning DevOps
-- 💬 Ask me about TypeScript
+## About me
 
-## 🌐 Socials
+- I'm currently working on improving my skills
+- I'm currently learning DevOps
+- Ask me about TypeScript
 
-<p>
-  <a href="https://facebook.com/thenishantsapkota"><img src="https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white" alt="Facebook" /></a>
-  <a href="https://instagram.com/thenishantsapkota"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram" /></a>
-  <a href="https://linkedin.com/in/thenishanttsapkota"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://medium.com/@snishant306"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" /></a>
-  <a href="https://twitter.com/snishant306"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
-</p>
+## Socials
 
-## 💻 Tech stack
+<a href="https://linkedin.com/in/thenishanttsapkota"><img src="./assets/social-linkedin.svg" alt="LinkedIn" title="LinkedIn" width="40" /></a> <a href="https://twitter.com/snishant306"><img src="./assets/social-x.svg" alt="X" title="X" width="40" /></a> <a href="https://medium.com/@snishant306"><img src="./assets/social-medium.svg" alt="Medium" title="Medium" width="40" /></a> <a href="https://instagram.com/thenishantsapkota"><img src="./assets/social-instagram.svg" alt="Instagram" title="Instagram" width="40" /></a> <a href="https://facebook.com/thenishantsapkota"><img src="./assets/social-facebook.svg" alt="Facebook" title="Facebook" width="40" /></a>
+
+## Tech stack
 
 **Languages**<br/>
 <img src="./assets/stack-languages.svg" alt="TypeScript, JavaScript, Python, Java, C++, Dart, HTML, CSS, Markdown" />
@@ -43,9 +37,9 @@
 **Design**<br/>
 <img src="./assets/stack-design.svg" alt="Photoshop, GIMP, Figma, Canva" />
 
-## 📊 GitHub stats
+## GitHub
 
-<p align="center">
+<p>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg" />
     <img src="./assets/stats-light.svg" alt="GitHub stats" width="49%" />
@@ -56,23 +50,23 @@
   </picture>
 </p>
 
-<p align="center">
+<p>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/streak-dark.svg" />
-    <img src="./assets/streak-light.svg" alt="Contribution streak" width="60%" />
+    <img src="./assets/streak-light.svg" alt="Contribution streak" width="100%" />
   </picture>
 </p>
 
-<p align="center">
+<p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thenishantsapkota/thenishantsapkota/output/snake-dark.svg" />
-    <img src="https://raw.githubusercontent.com/thenishantsapkota/thenishantsapkota/output/snake.svg" alt="Snake eating my contribution graph" />
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/snake-dark.svg" />
+    <img src="./assets/snake-light.svg" alt="A snake writes NISHANT across my contribution graph" width="100%" />
   </picture>
 </p>
 
 <sub>Stats, streak and snake are rebuilt every day by <a href=".github/workflows/update_readme.yml">this repo's own workflow</a>.</sub>
 
-## 🎵 Currently listening to
+## Listening
 
 [![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=ygp41sktyl4ztdkv0cn6ta0j1&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&profanity=false&hide_remaster=false)](https://github.com/kittinan/spotify-github-profile)
 
